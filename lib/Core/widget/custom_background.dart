@@ -3,8 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CustomBackGround extends StatelessWidget {
-  const CustomBackGround({super.key, required Center child});
-
+  const CustomBackGround(
+      {super.key, required Center child, required this.customChild});
+  final Widget? customChild;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -15,7 +16,7 @@ class CustomBackGround extends StatelessWidget {
             height: 300,
             width: 300,
             decoration: const BoxDecoration(
-                shape: BoxShape.circle, color: Colors.greenAccent),
+                shape: BoxShape.circle, color: Color(0xff58BB44)),
           ),
         ),
         Align(
@@ -24,7 +25,7 @@ class CustomBackGround extends StatelessWidget {
             height: 300,
             width: 300,
             decoration: const BoxDecoration(
-                shape: BoxShape.circle, color: Colors.greenAccent),
+                shape: BoxShape.circle, color: Color(0xff58BB44)),
           ),
         ),
         Align(
@@ -32,7 +33,7 @@ class CustomBackGround extends StatelessWidget {
           child: Container(
             height: 300,
             width: 300,
-            decoration: const BoxDecoration(color: Colors.green),
+            decoration: const BoxDecoration(color: Color(0xff007541)),
           ),
         ),
         BackdropFilter(
@@ -40,6 +41,11 @@ class CustomBackGround extends StatelessWidget {
           child: Container(
             decoration: const BoxDecoration(color: Colors.transparent),
           ),
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: customChild,
         ),
       ],
     );

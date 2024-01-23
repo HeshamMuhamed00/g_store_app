@@ -7,6 +7,13 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomBackGround(
+      customChild: Column(
+        children: [
+          Image(
+            image: AssetImage('assets/Untitled-1text.png'),
+          ),
+        ],
+      ),
       child: Center(),
     );
   }
