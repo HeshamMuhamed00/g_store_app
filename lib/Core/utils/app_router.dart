@@ -1,4 +1,5 @@
 import 'package:g_store_app/Features/Splash/splash_view.dart';
+import 'package:g_store_app/Features/home/presentation/view/home_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -7,6 +8,10 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: '/homeView',
+        builder: (context, state) => const HomeView(),
       ),
     ],
   );
