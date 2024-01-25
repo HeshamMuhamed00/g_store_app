@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Core/widget/custom_background.dart';
+import 'package:g_store_app/Core/widget/custom_button.dart';
 import 'package:g_store_app/Features/home/presentation/view/widget/custom_text_feild.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -13,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 18),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Image(
               image: AssetImage('assets/Untitled-1text.png'),
@@ -54,7 +55,13 @@ class HomeViewBody extends StatelessWidget {
                 Icons.key,
                 color: Color(0xff1CAA6F),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const CustomButton(
+              text: 'Login',
+            ),
           ],
         ),
       ),
