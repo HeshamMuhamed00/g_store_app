@@ -25,7 +25,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       nextScreen: const HomeView(),
       splashIconSize: 300,
       splashTransition: SplashTransition.scaleTransition,
-      duration: 1000,
+      duration: 0,
       animationDuration: const Duration(seconds: 1),
     );
   }
