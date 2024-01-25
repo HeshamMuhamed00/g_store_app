@@ -3,6 +3,7 @@ import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Core/widget/custom_background.dart';
 import 'package:g_store_app/Core/widget/custom_button.dart';
 import 'package:g_store_app/Features/home/presentation/view/widget/custom_text_feild.dart';
+import 'package:g_store_app/Features/home/presentation/view/widget/signup_text.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -57,11 +58,15 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 60,
             ),
             const CustomButton(
               text: 'Login',
             ),
+            const SizedBox(
+              height: 6,
+            ),
+            const SignUpText(),
           ],
         ),
       ),
