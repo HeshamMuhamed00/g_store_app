@@ -3,7 +3,8 @@ import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Core/widget/custom_background.dart';
 import 'package:g_store_app/Core/widget/custom_button.dart';
 import 'package:g_store_app/Features/home/presentation/view/widget/custom_text_feild.dart';
-import 'package:g_store_app/Features/home/presentation/view/widget/signup_text.dart';
+import 'package:g_store_app/Features/home/presentation/view/widget/signup_and_login_nacigate.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -32,10 +33,7 @@ class HomeViewBody extends StatelessWidget {
               style: Styles.style22.copyWith(fontWeight: FontWeight.normal),
             ),
             const SizedBox(
-              height: 14,
-            ),
-            const SizedBox(
-              height: 4,
+              height: 18,
             ),
             const CustomTextFeild(
               hintText: 'Username',
@@ -60,13 +58,22 @@ class HomeViewBody extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            const CustomButton(
+            CustomButton(
+              onPressed: () {
+                GoRouter.of(context).push('/productView');
+              },
               text: 'Login',
             ),
             const SizedBox(
               height: 6,
             ),
-            const SignUpText(),
+            SignUpAndLoginNavigate(
+              text: 'Dont have an account ? ',
+              textButton: 'Sign Up',
+              onTap: () {
+                GoRouter.of(context).push('/signupView');
+              },
+            ),
           ],
         ),
       ),

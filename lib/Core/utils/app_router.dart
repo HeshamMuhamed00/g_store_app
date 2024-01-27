@@ -1,6 +1,7 @@
 import 'package:g_store_app/Features/Splash/splash_view.dart';
 import 'package:g_store_app/Features/home/presentation/view/home_view.dart';
 import 'package:g_store_app/Features/home/presentation/view/signup_view.dart';
+import 'package:g_store_app/Features/product/presentation/view/product_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -17,6 +18,10 @@ abstract class AppRouter {
       GoRoute(
         path: '/signupView',
         builder: (context, state) => const SignUpView(),
+      ),
+      GoRoute(
+        path: '/productView',
+        builder: (context, state) => const ProductView(),
       ),
     ],
   );
