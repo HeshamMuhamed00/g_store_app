@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:g_store_app/Core/utils/app_router.dart';
 
 void main() {
   runApp(const GStoreApp());
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
 }
 
 class GStoreApp extends StatelessWidget {

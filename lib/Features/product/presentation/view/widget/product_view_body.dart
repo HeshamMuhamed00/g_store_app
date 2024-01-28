@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Features/home/presentation/view/widget/custom_text_feild.dart';
+import 'package:g_store_app/Features/product/presentation/view/widget/custom_Product_item.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/custom_product_background.dart';
 
 class ProductViewBody extends StatelessWidget {
@@ -9,26 +10,34 @@ class ProductViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
-      body: CustomProductBackGroud(
-        child: Column(
-          children: [
-            Expanded(
-              child: Image(
-                image: AssetImage('assets/Untitled-1text.png'),
-              ),
+      body: Column(
+        children: [
+          CustomProductBackGroud(
+            child: Column(
+              children: [
+                Expanded(
+                  child: Image(
+                    image: AssetImage('assets/Untitled-1text.png'),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: CustomTextFeild(
+                    hintText: 'Search',
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: CustomTextFeild(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
-        ),
+          ),
+          CustomProductItem(),
+        ],
       ),
     );
   }

@@ -6,10 +6,10 @@ class CustomProductBackGroud extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.29,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
-        color: Colors.green,
+        color: Color(0xff8cbc46),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(32),
           bottomRight: Radius.circular(32),
