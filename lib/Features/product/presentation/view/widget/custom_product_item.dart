@@ -11,36 +11,58 @@ class CustomProductItem extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.23,
-            width: MediaQuery.of(context).size.width * 0.34,
-            child: const Card(
-              elevation: 50,
+            height: MediaQuery.of(context).size.height * 0.27,
+            width: MediaQuery.of(context).size.width * 0.37,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              color: Colors.white.withOpacity(1),
+              elevation: 2,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Sport shose',
-                      style: Styles.style16,
+                      'Sport shose addidas sports ',
+                      style: Styles.style16.copyWith(color: Colors.black),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    Text(
-                      r'99.9$',
-                      style: Styles.style14,
+                    const SizedBox(
+                      height: 5,
                     ),
+                    Row(
+                      children: [
+                        Text(
+                          r'99.9$',
+                          style: Styles.style14.copyWith(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
+                        const Spacer(),
+                        const Icon(
+                          Icons.shopping_cart_checkout,
+                          color: Colors.black,
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
             ),
           ),
           Positioned(
-            left: 9,
+            left: 14,
             top: 20,
-            child: Image.network(
-              'https://i.imgur.com/QkIa5tT.jpeg',
-              height: MediaQuery.of(context).size.height * 0.13,
-              width: MediaQuery.of(context).size.width * 0.3,
+            child: ClipRRect(
+              child: Image.network(
+                'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
+                height: MediaQuery.of(context).size.height * 0.14,
+                width: MediaQuery.of(context).size.width * 0.3,
+              ),
             ),
           ),
         ],

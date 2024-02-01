@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Image(
-              image: AssetImage('assets/Untitled-1text.png'),
+              image: AssetImage('assets/Untitled-1.png'),
             ),
             const Text(
               'Login',
