@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_store_app/Features/product/presentation/view/widget/category_item.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/custom_Product_item.dart';
 
 class ProductViewBody extends StatelessWidget {
@@ -12,6 +13,10 @@ class ProductViewBody extends StatelessWidget {
       backgroundColor: const Color(0xff6AE4B4),
       body: const Column(
         children: [
+          SizedBox(
+            height: 20,
+          ),
+          CategoryItem(),
           CustomProductItem(),
         ],
       ),
