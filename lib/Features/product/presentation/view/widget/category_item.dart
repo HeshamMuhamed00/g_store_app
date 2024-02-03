@@ -27,7 +27,7 @@ class CategoryItem extends StatelessWidget {
           Text(
             categoryModel.categoryName,
             style: Styles.style16.copyWith(color: Colors.black),
-          )
+          ),
         ],
       ),
     );

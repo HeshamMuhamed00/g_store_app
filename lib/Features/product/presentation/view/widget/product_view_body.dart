@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/category_list_view.dart';
-import 'package:g_store_app/Features/product/presentation/view/widget/custom_Product_item.dart';
+import 'package:g_store_app/Features/product/presentation/view/widget/custom_grid_view.dart';
 
 class ProductViewBody extends StatelessWidget {
   const ProductViewBody({super.key});
@@ -32,7 +32,7 @@ class ProductViewBody extends StatelessWidget {
               'New arrivel',
               style: Styles.style22.copyWith(color: Colors.black),
             ),
-            const CustomProductItem(),
+            const CustomGridView(),
           ],
         ),
       ),
