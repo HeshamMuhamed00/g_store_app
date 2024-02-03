@@ -12,7 +12,7 @@ class CustomProductItem extends StatelessWidget {
         children: [
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.27,
-            width: MediaQuery.of(context).size.width * 0.37,
+            width: MediaQuery.of(context).size.width * 0.45,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -61,7 +61,7 @@ class CustomProductItem extends StatelessWidget {
               child: Image.network(
                 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
                 height: MediaQuery.of(context).size.height * 0.14,
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.4,
               ),
             ),
           ),
