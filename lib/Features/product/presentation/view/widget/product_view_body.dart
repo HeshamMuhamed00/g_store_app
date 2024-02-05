@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/category_list_view.dart';
-import 'package:g_store_app/Features/product/presentation/view/widget/custom_grid_view.dart';
+import 'package:g_store_app/Features/product/presentation/view/widget/custom_sliver_grid_.dart';
 
 class ProductViewBody extends StatelessWidget {
   const ProductViewBody({super.key});
@@ -14,25 +14,34 @@ class ProductViewBody extends StatelessWidget {
       backgroundColor: const Color(0xff6AE4B4),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 10,
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Choose by category',
+                    style: Styles.style22.copyWith(color: Colors.black),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const CategoryListView(),
+                  Text(
+                    'New arrival',
+                    style: Styles.style22.copyWith(color: Colors.black),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                ],
+              ),
             ),
-            Text(
-              'Choose by category',
-              style: Styles.style22.copyWith(color: Colors.black),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const CategoryListView(),
-            Text(
-              'New arrivel',
-              style: Styles.style22.copyWith(color: Colors.black),
-            ),
-            const CustomGridView(),
+            const CustomSliverGrid(),
           ],
         ),
       ),
