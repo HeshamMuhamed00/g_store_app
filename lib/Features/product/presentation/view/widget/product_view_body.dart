@@ -9,8 +9,12 @@ class ProductViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: const Drawer(),
+      appBar: AppBar(
+        backgroundColor: const Color(0xff6AE4B4),
+      ),
+      drawer: const Drawer(
+        backgroundColor: Color(0xff6AE4B4),
+      ),
       backgroundColor: const Color(0xff6AE4B4),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
