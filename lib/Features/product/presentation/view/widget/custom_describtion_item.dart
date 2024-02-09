@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Core/widget/custom_button.dart';
+import 'package:g_store_app/Features/product/presentation/view/widget/custom_fav_icon.dart';
 
 class CustomDescribtionItem extends StatefulWidget {
   const CustomDescribtionItem({super.key});
@@ -12,6 +12,7 @@ class CustomDescribtionItem extends StatefulWidget {
 
 class _CustomDescribtionItemState extends State<CustomDescribtionItem> {
   bool isShowMore = true;
+  bool isFav = true;
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +34,7 @@ class _CustomDescribtionItemState extends State<CustomDescribtionItem> {
             const SizedBox(
               height: 22,
             ),
-            const CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 20,
-              child: Icon(
-                FontAwesomeIcons.solidHeart,
-                size: 16,
-                color: Colors.red,
-              ),
-            ),
+            const CustomFavIcon(),
             const SizedBox(
               height: 14,
             ),
