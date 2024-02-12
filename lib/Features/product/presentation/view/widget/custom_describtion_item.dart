@@ -18,7 +18,7 @@ class _CustomDescribtionItemState extends State<CustomDescribtionItem> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.sizeOf(context).height / 1.5,
-      width: MediaQuery.sizeOf(context).width / 1,
+      width: double.infinity,
       decoration: const BoxDecoration(
         color: Color(0xff6AE4B4),
         borderRadius: BorderRadius.only(

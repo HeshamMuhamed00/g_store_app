@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
+import 'package:g_store_app/Features/home/presentation/view/widget/custom_text_feild.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/category_list_view.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/custom_sliver_grid_.dart';
 
@@ -26,6 +27,13 @@ class ProductViewBody extends StatelessWidget {
                 children: [
                   const SizedBox(
                     height: 10,
+                  ),
+                  const CustomTextFeild(
+                    hintText: 'Seatsh',
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                  const SizedBox(
+                    height: 8,
                   ),
                   Text(
                     'Choose by category',
