@@ -22,9 +22,15 @@ class ProductRepoImpl implements ProductRepo {
       return Right(products);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
+        return left(
+          ServerFailure.fromDioException(e),
+        );
       }
-      return left(ServerFailure(e.toString()));
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
   }
 
