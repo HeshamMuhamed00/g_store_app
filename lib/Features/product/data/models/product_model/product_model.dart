@@ -28,23 +28,21 @@ class ProductModel extends Equatable {
         description: json['description'] as String?,
         category: json['category'] as String?,
         image: json['image'] as String?,
-        rating: json['rating'] == null
-            ? null
-            : Rating.fromJson(json['rating'] as Map<String, dynamic>),
+        rating: json['rating'] == null ? null : Rating.fromJson(json['rating']),
       );
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-        'price': price,
-        'description': description,
-        'category': category,
-        'image': image,
-        'rating': rating?.toJson(),
-      };
+  List<dynamic> toJson() => [
+        id,
+        title,
+        price,
+        description,
+        category,
+        image,
+        rating?.toJson(),
+      ];
 
   @override
-  List<Object?> get props {
+  List<dynamic> get props {
     return [
       id,
       title,

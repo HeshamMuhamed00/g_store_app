@@ -53,7 +53,7 @@ class ProductViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            const CustomSliverGrid(),
+            const SliverToBoxAdapter(child: CustomSliverGrid()),
           ],
         ),
       ),
