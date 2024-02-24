@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:g_store_app/Features/product/data/models/product_model/product_model.dart';
+import 'package:g_store_app/Features/product/data/models/product/product.model.dart';
 import 'package:g_store_app/Features/product/data/repo/product_repo.dart';
 
 part 'product_cubit_state.dart';

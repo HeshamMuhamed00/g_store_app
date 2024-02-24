@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:g_store_app/Core/Errors/failure.dart';
 import 'package:g_store_app/Core/utils/api_service.dart';
-import 'package:g_store_app/Features/product/data/models/product_model/product_model.dart';
+import 'package:g_store_app/Features/product/data/models/product/product.model.dart';
 import 'package:g_store_app/Features/product/data/repo/product_repo.dart';
 
 class ProductRepoImpl implements ProductRepo {

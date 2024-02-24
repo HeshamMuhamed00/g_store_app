@@ -11,16 +11,11 @@ class Rating extends Equatable {
         count: json['count'] as int?,
       );
 
-  // List<dynamic> toJson() => [
-  //       rate,
-  //       count,
-  //     ];
-
   Map<String, dynamic> toJson() => {
         'rate': rate,
         'count': count,
       };
 
   @override
-  List<dynamic> get props => [rate, count];
+  List<Object?> get props => [rate, count];
 }

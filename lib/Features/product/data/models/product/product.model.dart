@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'rating.dart';
+import 'rating.model.dart';
 
 class ProductModel extends Equatable {
   final int? id;
@@ -28,21 +28,23 @@ class ProductModel extends Equatable {
         description: json['description'] as String?,
         category: json['category'] as String?,
         image: json['image'] as String?,
-        rating: json['rating'] == null ? null : Rating.fromJson(json['rating']),
+        rating: json['rating'] == null
+            ? null
+            : Rating.fromJson(json['rating'] as Map<String, dynamic>),
       );
 
-  List<dynamic> toJson() => [
-        id,
-        title,
-        price,
-        description,
-        category,
-        image,
-        rating?.toJson(),
-      ];
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'price': price,
+        'description': description,
+        'category': category,
+        'image': image,
+        'rating': rating?.toJson(),
+      };
 
   @override
-  List<dynamic> get props {
+  List<Object?> get props {
     return [
       id,
       title,
