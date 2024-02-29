@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:g_store_app/Core/Errors/failure.dart';
@@ -16,8 +14,6 @@ class ProductRepoImpl implements ProductRepo {
     try {
       var data = await apiService.get(endPoint: 'products');
 
-      log('sucssessss');
-
       List<ProductModel> productsList = [];
 
       for (int i = 0; i < data.length; i++) {
@@ -28,8 +24,6 @@ class ProductRepoImpl implements ProductRepo {
       return right(productsList);
     } catch (e) {
       if (e is DioException) {
-        log('failedd');
-
         return left(
           ServerFailure.fromDioException(e),
         );

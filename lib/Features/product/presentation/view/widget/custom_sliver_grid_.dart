@@ -30,7 +30,7 @@ class CustomSliverGrid extends StatelessWidget {
         } else if (state is ProductCubitFailure) {
           return CustomError(errMessage: state.errrMessage);
         } else {
-          return const CustomLodingIndicator();
+          return const SliverToBoxAdapter(child: CustomLodingIndicator());
         }
       },
     );
