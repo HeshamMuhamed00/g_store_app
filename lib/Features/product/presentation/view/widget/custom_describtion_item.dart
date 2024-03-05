@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Core/widget/custom_button.dart';
+import 'package:g_store_app/Features/product/data/models/product/product.model.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/custom_fav_icon.dart';
 
 class CustomDescribtionItem extends StatefulWidget {
-  const CustomDescribtionItem({super.key});
+  const CustomDescribtionItem({super.key, required this.productModel});
+  final ProductModel productModel;
 
   @override
   State<CustomDescribtionItem> createState() => _CustomDescribtionItemState();
@@ -42,9 +44,13 @@ class _CustomDescribtionItemState extends State<CustomDescribtionItem> {
               padding: const EdgeInsets.only(right: 20),
               child: Row(
                 children: [
-                  Text(
-                    'HandBag \nLeather Wallet',
-                    style: Styles.style24.copyWith(color: Colors.black),
+                  Expanded(
+                    child: Text(
+                      widget.productModel.title ?? '',
+                      maxLines: 2,
+                      overflow: TextOverflow.clip,
+                      style: Styles.style24.copyWith(color: Colors.black),
+                    ),
                   ),
                   const Spacer(),
                   Column(
@@ -54,19 +60,19 @@ class _CustomDescribtionItemState extends State<CustomDescribtionItem> {
                         style: Styles.style16.copyWith(color: Colors.black),
                       ),
                       Text(
-                        '99.9\$',
+                        (widget.productModel.price.toString() + r'$'),
                         style: Styles.style18.copyWith(color: Colors.black),
-                      ),
-                      const SizedBox(
-                        height: 50,
                       ),
                     ],
                   ),
                 ],
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             Text(
-              'HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet HandBag Leather Wallet',
+              widget.productModel.description ?? '',
               maxLines: isShowMore ? 3 : null,
               overflow: TextOverflow.fade,
               style: Styles.style18.copyWith(color: Colors.black),

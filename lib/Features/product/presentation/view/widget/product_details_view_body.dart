@@ -29,7 +29,9 @@ class ProductDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            const CustomDescribtionItem(),
+            CustomDescribtionItem(
+              productModel: productModel,
+            ),
           ],
         ),
       ),
