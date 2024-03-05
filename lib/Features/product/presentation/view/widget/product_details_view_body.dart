@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:g_store_app/Features/product/data/models/product/product.model.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/custom_describtion_item.dart';
 import 'package:g_store_app/Features/product/presentation/view/widget/custom_details_image.dart';
 import 'package:go_router/go_router.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
-  const ProductDetailsViewBody({super.key});
-
+  const ProductDetailsViewBody({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +20,16 @@ class ProductDetailsViewBody extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomDetailsImage(),
-            CustomDescribtionItem(),
+            CustomDetailsImage(
+              imageUrl: productModel.image ?? '',
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            const CustomDescribtionItem(),
           ],
         ),
       ),
