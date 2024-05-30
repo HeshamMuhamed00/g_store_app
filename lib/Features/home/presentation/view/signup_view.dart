@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
 import 'package:g_store_app/Core/widget/custom_background.dart';
@@ -6,8 +9,15 @@ import 'package:g_store_app/Features/home/presentation/view/widget/custom_text_f
 import 'package:g_store_app/Features/home/presentation/view/widget/signup_and_login_nacigate.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
+
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
+  String? email, password;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +46,12 @@ class SignUpView extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const CustomTextFeild(
+              CustomTextFeild(
+                onChanged: (data) {
+                  email = data;
+                },
                 hintText: 'Username',
-                prefixIcon: Icon(
+                prefixIcon: const Icon(
                   Icons.person,
                   color: Color(0xff1CAA6F),
                 ),
@@ -49,9 +62,12 @@ class SignUpView extends StatelessWidget {
               const SizedBox(
                 height: 4,
               ),
-              const CustomTextFeild(
+              CustomTextFeild(
+                onChanged: (data) {
+                  password = data;
+                },
                 hintText: 'Password',
-                prefixIcon: Icon(
+                prefixIcon: const Icon(
                   Icons.key,
                   color: Color(0xff1CAA6F),
                 ),
@@ -59,7 +75,14 @@ class SignUpView extends StatelessWidget {
               const SizedBox(
                 height: 60,
               ),
-              const CustomButton(
+              CustomButton(
+                onPressed: () async {
+                  var auth = FirebaseAuth.instance;
+                  UserCredential user =
+                      await auth.createUserWithEmailAndPassword(
+                          email: email!, password: password!);
+                  log(user.user!.displayName!);
+                },
                 text: 'Sign Up',
               ),
               const SizedBox(
