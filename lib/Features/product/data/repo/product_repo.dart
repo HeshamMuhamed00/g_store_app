@@ -4,5 +4,5 @@ import 'package:g_store_app/Features/product/data/models/product/product.model.d
 
 abstract class ProductRepo {
   Future<Either<Failure, List<ProductModel>>> fetchProduct();
-  Future<Either<Failure, List<ProductModel>>> fetchSearchProduct();
+  Future<Either<Failure, List<ProductModel>>> filterProduct();
 }

@@ -5,6 +5,7 @@ import 'package:g_store_app/Core/utils/app_router.dart';
 import 'package:g_store_app/Core/utils/bloc_observer.dart';
 import 'package:g_store_app/Core/utils/service_locator.dart';
 import 'package:g_store_app/Features/product/data/repo/product_repo_impl.dart';
+import 'package:g_store_app/Features/product/presentation/manager/filter_product_cubit/filter_product_cubit.dart';
 import 'package:g_store_app/Features/product/presentation/manager/product_cubit/product_cubit_cubit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +27,10 @@ class GStoreApp extends StatelessWidget {
             create: (context) => ProductCubit(
                   getIt.get<ProductRepoImpl>(),
                 )..fetchProduct()),
+        BlocProvider(
+            create: (context) => FilterProductCubit(
+                  getIt.get<ProductRepoImpl>(),
+                )..filterProduct()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

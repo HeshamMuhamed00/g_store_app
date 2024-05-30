@@ -37,8 +37,40 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<Failure, List<ProductModel>>> fetchSearchProduct() {
-    // TODO: implement fetchSearchProduct
-    throw UnimplementedError();
+  Future<Either<Failure, List<ProductModel>>> filterProduct() async {
+    try {
+      var data = await apiService.get(endPoint: 'products');
+
+      List<ProductModel> productsList = [];
+
+      for (int i = 0; i < data.length; i++) {
+        productsList.add(
+          ProductModel.fromJson(data[i]),
+        );
+      }
+      return right(productsList);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioException(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  List<ProductModel> productsList = [];
+
+  List<ProductModel> filteredProducts = [];
+
+  void filterProducts({required String input}) {
+    filteredProducts = productsList
+        .where((element) =>
+            element.title!.toLowerCase().startsWith(input.toLowerCase()))
+        .toList();
   }
 }

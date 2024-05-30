@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "145404081864",
+    "project_id": "g-store-app-8698f",
+    "storage_bucket": "g-store-app-8698f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145404081864:android:c1e3d1487c73d6913b97fd",
+        "android_client_info": {
+          "package_name": "com.example.g_store_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANjULJRP079Q5w96BIW_sX3yZNWc5img4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
