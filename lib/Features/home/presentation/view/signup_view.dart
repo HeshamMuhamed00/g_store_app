@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:g_store_app/Core/utils/styles.dart';
@@ -77,11 +75,16 @@ class _SignUpViewState extends State<SignUpView> {
               ),
               CustomButton(
                 onPressed: () async {
-                  var auth = FirebaseAuth.instance;
-                  UserCredential user =
-                      await auth.createUserWithEmailAndPassword(
-                          email: email!, password: password!);
-                  log(user.user!.displayName!);
+                  try {
+                    await registerUser();
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'email-already-in-use') {
+                      showSnackBar(context, 'Tis email already used');
+                    } else if (e.code == 'weak-passsword') {
+                      showSnackBar(context, 'Weak Password');
+                    }
+                    showSnackBar(context, 'Sign Up Success');
+                  }
                 },
                 text: 'Sign Up',
               ),
@@ -100,5 +103,19 @@ class _SignUpViewState extends State<SignUpView> {
         ),
       ),
     );
+  }
+
+  void showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.deepOrange,
+        content: Text(message),
+      ),
+    );
+  }
+
+  Future<void> registerUser() async {
+    UserCredential user = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email!, password: password!);
   }
 }

@@ -18,7 +18,7 @@ abstract class AppRouter {
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: '/signUptView',
+        path: '/signUpView',
         builder: (context, state) => const SignUpView(),
       ),
       GoRoute(
