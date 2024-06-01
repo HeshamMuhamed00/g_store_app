@@ -16,6 +16,7 @@ class SignUpView extends StatefulWidget {
 
 class _SignUpViewState extends State<SignUpView> {
   String? email, password;
+  GlobalKey<FormState> formkKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -23,82 +24,88 @@ class _SignUpViewState extends State<SignUpView> {
       body: CustomBackGround(
         customChild: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Image(
-                image: AssetImage('assets/Untitled-1.png'),
-              ),
-              const Text(
-                'Sign Up',
-                style: Styles.style24,
-              ),
-              const SizedBox(
-                height: 1,
-              ),
-              Text(
-                'Create Account',
-                style: Styles.style22.copyWith(fontWeight: FontWeight.normal),
-              ),
-              const SizedBox(
-                height: 18,
-              ),
-              CustomTextFeild(
-                onChanged: (data) {
-                  email = data;
-                },
-                hintText: 'Username',
-                prefixIcon: const Icon(
-                  Icons.person,
-                  color: Color(0xff1CAA6F),
+          child: Form(
+            key: formkKey,
+            child: ListView(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Image(
+                  image: AssetImage('assets/Untitled-1.png'),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              CustomTextFeild(
-                onChanged: (data) {
-                  password = data;
-                },
-                hintText: 'Password',
-                prefixIcon: const Icon(
-                  Icons.key,
-                  color: Color(0xff1CAA6F),
+                const Text(
+                  'Sign Up',
+                  style: Styles.style24,
                 ),
-              ),
-              const SizedBox(
-                height: 60,
-              ),
-              CustomButton(
-                onPressed: () async {
-                  try {
-                    await registerUser();
-                  } on FirebaseAuthException catch (e) {
-                    if (e.code == 'email-already-in-use') {
-                      showSnackBar(context, 'Tis email already used');
-                    } else if (e.code == 'weak-passsword') {
-                      showSnackBar(context, 'Weak Password');
+                const SizedBox(
+                  height: 1,
+                ),
+                Text(
+                  'Create Account',
+                  style: Styles.style22.copyWith(fontWeight: FontWeight.normal),
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                CustomTextFeild(
+                  onChanged: (data) {
+                    email = data;
+                  },
+                  hintText: 'Username',
+                  prefixIcon: const Icon(
+                    Icons.person,
+                    color: Color(0xff1CAA6F),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                CustomTextFeild(
+                  onChanged: (data) {
+                    password = data;
+                  },
+                  hintText: 'Password',
+                  prefixIcon: const Icon(
+                    Icons.key,
+                    color: Color(0xff1CAA6F),
+                  ),
+                ),
+                const SizedBox(
+                  height: 60,
+                ),
+                CustomButton(
+                  onPressed: () async {
+                    if (formkKey.currentState!.validate()) {
+                      try {
+                        await registerUser();
+                        showSnackBar(context, 'Sign Up Success');
+                        GoRouter.of(context).pop('/homeView');
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'email-already-in-use') {
+                          showSnackBar(context, 'Tis email already used');
+                        } else if (e.code == 'weak-passsword') {
+                          showSnackBar(context, 'Weak Password');
+                        }
+                      }
                     }
-                    showSnackBar(context, 'Sign Up Success');
-                  }
-                },
-                text: 'Sign Up',
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              SignUpAndLoginNavigate(
-                text: 'Already have an account ? ',
-                textButton: 'Login',
-                onTap: () {
-                  GoRouter.of(context).pop('/homeView');
-                },
-              ),
-            ],
+                  },
+                  text: 'Sign Up',
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                SignUpAndLoginNavigate(
+                  text: 'Already have an account ? ',
+                  textButton: 'Login',
+                  onTap: () {
+                    GoRouter.of(context).pop('/homeView');
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
