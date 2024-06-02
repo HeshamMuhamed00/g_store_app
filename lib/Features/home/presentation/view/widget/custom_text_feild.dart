@@ -5,14 +5,17 @@ class CustomTextFeild extends StatelessWidget {
       {super.key,
       required this.hintText,
       required this.prefixIcon,
-      this.onChanged});
+      this.onChanged,
+      this.isScure});
   final String hintText;
   final Widget prefixIcon;
   final Function(String)? onChanged;
+  final bool? isScure;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: isScure ?? false,
       validator: (data) {
         if (data!.isEmpty) {
           return 'Feild is required';
